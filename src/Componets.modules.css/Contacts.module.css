@@ -1,0 +1,121 @@
+/* Contacts.module.css */
+
+/* CSS para a classe .container com fundo desfocado */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+   
+}
+  
+
+.ulList {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 50%;
+    list-style: none;
+    text-align: center;
+    padding: 40px;
+    min-width: 60%;
+    background-color: #13131f;
+    border-radius: 15px;
+}
+  
+
+.whatsapp {
+    border: solid 2px var(--color02);
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.whatsapp:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 10px 5px 20px #04ff045b;
+}
+
+
+.telegram {
+    border: solid 2px #28b6da;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.telegram:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 10px 5px 20px #28b6da5a;
+}
+
+.instagram {
+    border: solid 2px #df6647;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.instagram:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 10px 5px 20px #df6647;
+}
+
+.linkdin {
+    border: solid 2px #4c4cbd;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.linkdin:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 10px 5px 20px #4c4cbd;
+}
+
+.containerContact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.whats {
+    font-size: 100px;
+    color: var(--color02);
+}
+
+.tel {
+    font-size: 100px;
+    color: #28b6da;
+}
+
+.insta{
+    font-size: 100px;
+    color: #df6647;
+}
+
+.link{
+    font-size: 100px;
+    color: #4c4cbd;
+}
+
+@media screen and (max-width: 899px){
+    .ulList{
+        min-width: 90%;
+    }
+
+    .instagram{
+        margin-bottom: 50px;
+    }
+
+}

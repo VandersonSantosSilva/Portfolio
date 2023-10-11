@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+a{
+    text-decoration: none;
+    color: var(--color01);
+}
+
+.Container{
+    background-image: linear-gradient(to top, var(--color05), #101031);
+    color: var(--color01);
+    padding: 15px;
+    border-bottom: solid 2px var(--color02);
+}
+
+.LogoTipo{
+    max-width: 100px;
+    float: left;
+}
+
+.ulList{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+}
+
+.menuHambuguer{
+    display: none;
+}
+
+.liList{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
+.liList:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.5s;
+    color: var(--color02);
+}
+
+.darkNav{
+    border-bottom: solid 2px var(--color06)!important;
+
+}
+
+@media screen and (max-width: 1050px){
+
+    .menuHambuguer{
+        display: block;
+        margin: auto;
+        margin-bottom: 15px;
+        font-size: 25px;
+        background-color: transparent;
+        border: none;
+        color: var(--color02);
+    }
+
+    .menuHambuguer:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+        transition: 0.5s;
+    }
+
+    .Container{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 15px 0px 15px;
+
+    }
+
+    .ulList{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .liList{
+        margin-bottom: 15px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1em;
+    }
+}

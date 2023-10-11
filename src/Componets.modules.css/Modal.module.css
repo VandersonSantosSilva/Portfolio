@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.Modal{
+    background-image: linear-gradient(to bottom, var(--color05), #101031);
+    padding: 20px;
+    width: 80%;
+    height: 50%;
+    align-items: center;
+    border-radius: 15px;
+    border: solid 2px var(--color02);
+}
+
+
+.ContainerModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0000001c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divVideo{
+    min-width: 40%;
+    min-height: 450px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.video{
+    width:70% ;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.modalText{
+    max-width: 40%;
+    color: var(--color01);
+    float: right;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.listModal{
+    list-style: none;
+    padding-bottom: 20px;
+}
+
+.linksModal{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 40%;
+}
+
+.linksModal a{
+    border: solid 2px var(--color02);
+    padding: 5px;
+    margin-top: -30px;
+    border-radius: 10px;
+}
+
+.linksModal a:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 3px 2px 15px var(--color01);
+}
+
+.modalText button{
+    position: absolute;
+    margin-left: 90%;
+    padding: 5px;
+    width: 30px;
+    border: none;
+}
+
+.modalText button:hover{
+    cursor: pointer;
+    background-color: #ff0000;
+    color: var(--color01);
+    border-radius: 5px;
+    transform: scale(1.3);
+    transition: 0.5s;
+
+}
+
+.modalText h1{
+    margin-top: 10%;
+}
+
+@media screen and (max-width: 1000px){
+    .modalText{
+        min-width: 90%;
+        text-align: center!important;
+    }
+
+    .listModal{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 90%;
+        padding: 0;
+        margin: auto;
+        text-align: center;
+    }
+
+    .listModal li{
+        margin: 2px;
+        color: var(--color02);
+        
+        text-align: center;
+    }
+
+
+    .ContainerModal{
+        position: fixed;
+        top: -25px;
+        left: 0;
+        width: 100%;
+        height: 110%;
+        background-color: rgba(255, 255, 255, 0.055);
+        backdrop-filter: blur(2px);
+        border-radius: 10px;
+        box-shadow: 0 0 10px #0000001c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Modal{
+        min-height: 480px!important;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .video{
+        display: none;
+    }
+
+    .divVideo{
+        display: none;
+    }
+
+    .linksModal{
+        min-width: 100%!important;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .linksModal a{
+        border: none;
+        font-size: 12px;
+        min-width: 30%!important;
+        margin: auto;
+        text-align: center;
+    }
+
+    
+    .linksModal a:hover{
+        color: var(--color02)!important;
+        box-shadow: none;
+    }
+
+
+
+    .modalText button{
+        margin-left: 40%!important;
+    }
+
+
+}
+
+@media screen and (max-width: 1500px) {
+    
+    .Modal{
+        height: 60%;
+    }
+
+    .video{
+        min-width: 90%;
+    }
+
+    .linksModal{
+        max-width: 50%;
+    }
+
+    .modalText{
+        font-size: 14px;
+        text-align: left;
+    }
+
+}
