@@ -16,10 +16,10 @@ function Destaques() {
     })
   }
 
-  const selecaoItens = [1,0]
+  const selecaoItens = [1,2]
 
   const projects = selecaoItens.map((indice) => {
-
+    
     const projeto = projetos[indice]
 
     return(

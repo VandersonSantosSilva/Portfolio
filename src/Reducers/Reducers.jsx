@@ -1,5 +1,5 @@
 import { produce } from "immer";
-import styles from "../Componets.modules.css/Modal.module.css"
+
 
 function Reducers(state = {
   menu: window.innerWidth < 1050 ? false : true,
@@ -35,6 +35,19 @@ function Reducers(state = {
       Linkdin: "https://www.linkedin.com/feed/update/urn:li:activity:7070089120819093504/",
       WebPage: "https://pokemania-2ln441eci-vandersonsantossilva.vercel.app/",
       descriptionModal: "Essa Pokedex foi muito importante nos avanços dos meus conhecimentos em desenvolvimento web, com esse projeto tive o meu primeiro contato com API, também foi um ótimo projeto pois através dele foi possível relembrar a infância de muitas pessoas! "
+    },
+
+    {
+      ID: 2,
+      Nome: "Chá de Casa Nova",
+      Img: "https://i.ibb.co/L5QPNGR/JW.png",
+      video: "https://streamable.com/e/0l7zeh",
+      description: "Esse Projeto foi criado de uma maneira bem especial. Um site de casa nova para um grande amigo e irmão meu. Eles estaram iniciando uma nova fase de suas vidas e eu não poderia deixar de presentea-los com esse pequeno projeto, porém criado com bastante carinho!",
+      tech: ["HTML", "CSS", "CSS Modules", "JavaScript", "ReactJS", "Redux"],
+      Github: "https://github.com/VandersonSantosSilva/casa-nova",
+      Linkdin: "https://www.linkedin.com/feed/update/urn:li:activity:7070089120819093504/",
+      WebPage: "https://cha-de-casa-nova-six.vercel.app/",
+      descriptionModal: "Além de ser um projeto especial para um grande amigo e irmão meu, pude desenvolver ainda mais as minhas habilidades, explorando novos caminhos nas tecnologias utilizada. Atráves desse projeto pude criar pela primeira vez um sistema de comentários, onde as pessoas poderam deixar sua menssagem de carinho e apoio para o querido casal.  "
     },
   ],
 
