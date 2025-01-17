@@ -1,46 +1,60 @@
 import styles from "../Componets.modules.css/Navbar.module.css"
-import Logo from "../Images/Logo.png"
-import {BsMenuUp, BsMenuDown} from "react-icons/bs"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { BsMenuUp } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
+function Navbar() {
+  const night = useSelector((state) => state.night);
+  const menu = useSelector((state) => state.menu);
+  const widthTela = useSelector((state) => state.widthTela)
+  const dispatch = useDispatch();
 
-function Navbar(){
-    const dispatch = useDispatch()
-    const menu = useSelector((state) => state.menu)
-    const night = useSelector((state) => state.night)
-    const ID = useSelector((state) => state.projetos)
+  function toggleMenu() {
+    dispatch({
+      type: "MENU",
+      payload: !menu,
+    });
+  }
 
-    function active_menu(){
-        dispatch({
-            type: "MENU",
-            payload: !menu
-        })
+  return (
+    <div className={widthTela ? styles.General : ""}>
+      <button
+        onClick={toggleMenu}
+        className={night ? styles.buttonMenu2 : styles.buttonMenu}
+      >
+        <BsMenuUp />
+      </button>
 
-    }
-
-    return(
-        <div className={`${styles.Container} ${night ? styles.darkNav : ""}`}>
-            <i><a href="https://www.linkedin.com/in/vanderson-santos-silva/" target="_blank"><img className={styles.LogoTipo} src={Logo} alt="logo" /></a></i>
-
-            <nav className={styles.ContainerNavbar}>
-                
-                <button onClick={active_menu} className={styles.menuHambuguer}>{menu ? <BsMenuDown /> : <BsMenuUp /> }</button>
-
-                {menu && 
-                    <ul className={styles.ulList}>
-                        <li key={0}><Link to="/" className={styles.liList}>Home</Link></li>
-                        <li key={1}><Link to="/Destaques" className={styles.liList}>Destaques</Link></li>
-                        <li key={2}><Link to="/Projetos" className={styles.liList}>Todos os Projetos</Link></li>
-                        <li key={3}><Link to="/Contatos" className={styles.liList}>Contatos</Link></li>
-                    </ul>
-                }
-          
-            </nav>
-        </div>
-    )
-
+      <div
+        className={`${menu && widthTela ? styles.ContainerTwo : styles.Container} ${
+          night ? styles.darkNav : ""
+        }`}
+      >
+        <ul className={styles.ulList}>
+          <li key={0}>
+            <Link to="/" className={styles.liList} onClick={toggleMenu}>
+              Home
+            </Link>
+          </li>
+          <li key={1}>
+            <Link to="/Destaques" className={styles.liList}  onClick={toggleMenu}>
+              Destaques
+            </Link>
+          </li>
+          <li key={2}>
+            <Link to="/Projetos" className={styles.liList}  onClick={toggleMenu}>
+              Todos os Projetos
+            </Link>
+          </li>
+          <li key={3}>
+            <Link to="/Contatos" className={styles.liList}  onClick={toggleMenu}>
+              Contatos
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
 }
 
- export default Navbar
+export default Navbar;

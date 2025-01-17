@@ -22,12 +22,12 @@ import { Link } from "react-router-dom";
 
 function Information(){
     const dispatch = useDispatch()
+    const menu = useSelector((state) => state.menu)
     const night = useSelector((state) => state.night)
     const obsanimation = useSelector((state) => state.observation.obsOne)
     const obsanimationTwo = useSelector((state) => state.observation.obsTwo)
     const widthCarousel = useSelector((state) => state.widthCarousel)
     const timer = useSelector((state) => state.timer)
-    const show = useSelector((state) => state.show)
     const p1 = useRef(null)
     const p2 = useRef(null)
     const carousel = useRef(null)
@@ -36,6 +36,7 @@ function Information(){
         {Name: "HTML", Logo: <AiFillHtml5 />}, {Name:"CSS", Logo: <IoLogoCss3 />}, {Name:"JavaScript", Logo: <IoLogoJavascript />},
         {Name: "ReactJS", Logo: <FaReact />}, {Name: "Redux", Logo: <TbBrandRedux />}, {Name: "Bootstrap", Logo: <TbBrandBootstrap />}
     ] 
+    
 
     /* Start Dark Mode */
     const active_night = () => {
@@ -151,100 +152,198 @@ function Information(){
 
     })
 
+    function toggleMenu(){
+      dispatch({
+        type: "MENU",
+        payload: !menu
+      })
+    }
 
-    return(
+    return (
+      <div className={styles.containeGeneral} onClick={toggleMenu}>
+        {/* start dark mode */}
 
-        <div>
-            {/* start dark mode */}
+        <div className={styles.night}>
+          <input
+            checked={night}
+            onChange={active_night}
+            className={styles.checkbox}
+            type="checkbox"
+            name="night"
+            id="mod"
+          />
 
-            <div className={styles.night}>
-                <input checked={night} onChange={active_night} className={styles.checkbox} type="checkbox" name="night" id="mod" />
-    
-                <label className={`${styles.label} ${night ? styles.darkThree : ""}`} htmlFor="mod">
-                    <i className={styles.moon}><BsFillMoonFill /></i>
-                    <div className={`${styles.ball} ${night ? styles.darkFuor : ""}`}></div>
-                    <i className={styles.sun}><BsFillSunFill /></i>
-                </label>
-            </div>
-
-            {/* //end dark mode */}
-
-            {/* //start corpo */}
-
-            <div className={styles.title}>
-
-                <img className={`${!timer ? styles.imgTitle : ""}`} src={photo} alt="vanderson"/>
-
-                <div className={styles.caixaText}>
-    
-                    <h1 className={`${styles.textOne} ${!timer ? styles.typingAnimationOne : ""} ${night ? styles.dark : ""}`}>Olá, eu sou o </h1>
-                    <span className={`${styles.textTwo} ${!timer ? styles.typingAnimationTwo : ""} ${night ? styles.darkTwo : ""}`}>Vanderson Santos</span>
-                    <p className={`${styles.textThree} ${!timer ? styles.typingAnimationThree : ""} ${night ? styles.dark : ""}`}>Desenvolvedor front-end</p>
-                    
-                    {timer && 
-                        <div className={`${styles.buttons}  ${timer ? styles.show : ''}`}>
-                            <button className={`${night ? styles.darkTwo : ""} `} onClick={downloadFile}>
-                                Download CV
-                            </button>
-
-                            <button>
-                                <Link to="/Contatos" className={`${night ? styles.darkTwo : ""}`}>Contatos</Link>
-                            </button>
-        
-                        </div>
-                    }
-
-                </div>
-
-            </div>
-
-            <div className={styles.containerSobre}>
-                <h1 className={`${styles.titleH1} ${night ? styles.darkTwo : ""}`}>Quem eu sou?</h1>
-
-                <p ref={p1} className={`${styles.paragrafos} ${night ? styles.dark : ""} ${obsanimation ?  "animate__animated animate__fadeIn": ""}`} 
-                    onAnimationEnd={() => endAnimation("refP1")}>
-
-                    Olá! Meu nome é Vanderson Santos, e eu sou um Programador apaixonado por tecnologias e inovações.
-                    Tenho como minha principal habilida tecnica o desenvolvimento web e as liguagens que mais utilizo é o HTML, CSS, Bootstrap, JavaScrip e o ReactJS.
-                    Busco sempre aprimorar os meus conhecimentos por isso não paro de estuar e atualmente os meus estudos estão focados em Node.JS e MongoDB.
-                    Também possuo curso de liderança, Desenvolvimento temperamentall, Desenvolvimento Comportamental e Trabalho em Equipe.
-                    
-                </p>
-
-            </div>
-
-            <div className={styles.containerHabilidades}>
-                <h1  className={`${styles.titleH1} ${night ? styles.darkTwo : ""}`}>Hard Skills</h1>
-                    <ul className={styles.list}>{hb}</ul>
-            </div>
-
-            <div className={styles.containerText}>
-                <p ref={p2} className={`${styles.paragrafos} ${night ? styles.dark : ""} ${obsanimationTwo ?  "animate__animated animate__fadeIn": ""}`}
-                 onAnimationEnd={() => endAnimation("refp2") }>
-                    Essa são as minhas principais habilidades tecnicas, com elas sou capaz de desenvolver sistemas web dinamicos e responsivos.
-                    Mas sei que não é apenas habilidas tecnicas que devem formar um exelente profissional e é por esse motivo que também busco o aprimoramento e a exelência
-                    das minhas habilidades comportamentais as famosas <span className={`${night ? styles.darkTwo : ""}`}>Soft Skills</span> abaixo mostro um pouco das minhas principais. 
-                </p>
-            </div>
-
-            <div className={styles.containerHabilidades}>
-
-                <motion.div ref={carousel} className={styles.carousel} whileTap={{cursor: "grabbing"}}>
-                    <motion.div className={styles.inner} drag="x" dragConstraints={{right: 0, left: -widthCarousel}} initial={{x: 200}} animate={{x: 0}} transition={{duration: 0.8}}>
-                        {images.map((image) => (
-                            <motion.div key={image} className={styles.imgs}>
-                                <img src={image} alt="carousel"/>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                </motion.div>
-                
-            </div>
-
-            {/* end corpo */}
+          <label
+            className={`${styles.label} ${night ? styles.darkThree : ""}`}
+            htmlFor="mod"
+          >
+            <i className={styles.moon}>
+              <BsFillMoonFill />
+            </i>
+            <div
+              className={`${styles.ball} ${night ? styles.darkFuor : ""}`}
+            ></div>
+            <i className={styles.sun}>
+              <BsFillSunFill />
+            </i>
+          </label>
         </div>
-    )
+
+        {/* //end dark mode */}
+
+        {/* //start corpo */}
+
+        <div className={styles.title}>
+          <img
+            className={`${!timer ? styles.imgTitle : ""}`}
+            src={photo}
+            alt="vanderson"
+          />
+
+          <div className={styles.caixaText}>
+            <h1
+              className={`${styles.textOne} ${
+                !timer ? styles.typingAnimationOne : ""
+              } ${night ? styles.dark : ""}`}
+            >
+              Olá, eu sou o{" "}
+            </h1>
+            <span
+              className={`${styles.textTwo} ${
+                !timer ? styles.typingAnimationTwo : ""
+              } ${night ? styles.darkTwo : ""}`}
+            >
+              Vanderson Santos
+            </span>
+            <p
+              className={`${styles.textThree} ${
+                !timer ? styles.typingAnimationThree : ""
+              } ${night ? styles.dark : ""}`}
+            >
+              Desenvolvedor front-end
+            </p>
+
+            {timer && (
+              <div className={`${styles.buttons}  ${timer ? styles.show : ""}`}>
+                <button
+                  className={`${night ? styles.darkTwo : ""} `}
+                  onClick={downloadFile}
+                >
+                  Download CV
+                </button>
+
+                <button>
+                  <Link
+                    to="/Contatos"
+                    className={`${night ? styles.darkTwo : ""}`}
+                  >
+                    Contatos
+                  </Link>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.containerSobre}>
+          <h1 className={`${styles.titleH1} ${night ? styles.darkTwo : ""}`}>
+            Apresentação profissional
+          </h1>
+
+          <span
+            ref={p1}
+            className={`${styles.paragrafos} ${night ? styles.dark : ""} ${
+              obsanimation ? "animate__animated animate__fadeIn" : ""
+            }`}
+            onAnimationEnd={() => endAnimation("refP1")}
+          >
+            <p>
+              Sou um desenvolvedor web apaixonado por tecnologia, inovação e
+              pela criação de soluções digitais eficientes. Minha principal
+              expertise está no desenvolvimento front-end, utilizando
+              tecnologias como HTML, CSS, Bootstrap, JavaScript e ReactJS para
+              criar interfaces modernas, responsivas e intuitivas.
+            </p>
+
+            <p>
+              Atualmente, estou expandindo meus conhecimentos para o
+              desenvolvimento back-end, com foco em Node.js e MongoDB, a fim de
+              aprimorar minhas habilidades em aplicações full stack e otimizar o
+              desempenho de sistemas web.
+            </p>
+
+            <p>
+              Além das competências técnicas, possuo certificações em Liderança,
+              Desenvolvimento Comportamental, Desenvolvimento Temperamental e
+              Trabalho em Equipe, permitindo-me atuar de forma colaborativa e
+              estratégica em projetos desafiadores.
+            </p>
+
+            <p>
+              Estou sempre em busca de novos desafios e oportunidades para
+              evoluir profissionalmente, desenvolvendo soluções inovadoras e
+              contribuindo para o crescimento da área de tecnologia.
+            </p>
+          </span>
+        </div>
+
+        <div className={styles.containerHabilidades}>
+          <h1 className={`${styles.titleH1} ${night ? styles.darkTwo : ""}`}>
+            Hard Skills
+          </h1>
+          <ul className={styles.list}>{hb}</ul>
+        </div>
+
+        <div className={styles.containerText}>
+          <span
+            ref={p2}
+            className={`${styles.paragrafos} ${night ? styles.dark : ""} ${
+              obsanimationTwo ? "animate__animated animate__fadeIn" : ""
+            }`}
+            onAnimationEnd={() => endAnimation("refp2")}
+          >
+            <p>
+              Essas são minhas principais habilidades técnicas, que me permitem
+              desenvolver sistemas web dinâmicos e responsivos com eficiência e
+              qualidade. No entanto, sei que um excelente profissional não é
+              formado apenas por competências técnicas.
+            </p>
+
+            <p>
+              Por isso, busco constantemente aprimorar minhas habilidades
+              comportamentais (Soft Skills), essenciais para a colaboração,
+              liderança e resolução de desafios no ambiente de trabalho. Abaixo,
+              destaco algumas das minhas principais competências nessa área.
+            </p>
+          </span>
+        </div>
+
+        <div className={styles.containerHabilidades}>
+          <motion.div
+            ref={carousel}
+            className={styles.carousel}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <motion.div
+              className={styles.inner}
+              drag="x"
+              dragConstraints={{ right: 0, left: -widthCarousel }}
+              initial={{ x: 200 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {images.map((image) => (
+                <motion.div key={image} className={styles.imgs}>
+                  <img src={image} alt="carousel" />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* end corpo */}
+      </div>
+    );
 
 }
 

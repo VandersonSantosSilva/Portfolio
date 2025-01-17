@@ -10,6 +10,7 @@ a{
     color: var(--color01);
     padding: 15px;
     border-bottom: solid 2px var(--color02);
+    
 }
 
 .LogoTipo{
@@ -23,6 +24,7 @@ a{
     justify-content: space-around;
     padding-top: 1%;
     padding-bottom: 0.5%;
+    text-decoration: none;
 }
 
 .menuHambuguer{
@@ -46,6 +48,18 @@ a{
 
 }
 
+.buttonMenu{
+    display: none;
+}
+
+.buttonMenu2{
+    display: none;
+}
+
+.General{
+    z-index: 1000;
+}
+
 @media screen and (max-width: 1050px){
 
     .menuHambuguer{
@@ -65,10 +79,26 @@ a{
     }
 
     .Container{
-        display: flex;
-        justify-content: space-between;
-        padding: 15px 15px 0px 15px;
+        display: none;
+    }
 
+    .ContainerTwo{
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px 15px 0px 15px;
+        border-bottom: solid 2px var(--color02);
+        border-left: solid 2px var(--color02);
+        border-top: solid 2px var(--color02);;
+        width: 40%;
+        height: 80vh;
+        position: fixed;
+        z-index: 1000;
+        margin-left: auto;
+        top: 7%;
+        right: 0;
+        padding-top: 0;
+        background-color: var(--color05);
+        border-radius: 20px 0px 0px 20px;
     }
 
     .ulList{
@@ -76,13 +106,42 @@ a{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0%;
+        margin: auto;
         padding: 0%;
+        line-height: 700%;
     }
 
     .liList{
         margin-bottom: 15px;
         font-family: 'Poppins', sans-serif;
         font-size: 1em;
+    }
+
+    .General{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        margin-right: 20px;
+        position: fixed;
+        right: 0;
+        top: 50px;
+    }
+
+    .buttonMenu{
+        display: block;
+        text-decoration: none;
+        font-size: 30px;
+        color: var(--color02);
+        background: transparent;
+        border: none;
+    }
+
+    .buttonMenu2{
+        display: block;
+        text-decoration: none;
+        font-size: 30px;
+        background: transparent;
+        border: none;
+        color: var(--color06);
     }
 }

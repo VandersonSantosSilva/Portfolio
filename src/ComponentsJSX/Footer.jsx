@@ -11,17 +11,26 @@ function Footer(){
         link.click()
     }
 
-    return(
-        <div className={styles.footer}>
+    return (
+      <div className={styles.footer}>
+        <Link to="./Projetos">
+          <button>Projetos</button>
+        </Link>
+        <button onClick={downloadFile}>Download CV</button>
+        <Link to="./Contatos">
+          <button>Contato</button>
+        </Link>
 
-            <Link to='./Projetos'><button>Projetos</button></Link>
-            <button onClick={downloadFile}>
-                Download CV
-            </button>
-            <Link to='./Contatos'><button>Contato</button></Link>
-
-        </div>
-    )
+        
+          <spanp className={styles.containerFooter}>
+            Transformando ideias em código e código em soluções
+          </spanp>
+          <span className={styles.containerFooter}>
+            &copy; 2025 todos os direitos reservados | Vanderson Santos
+          </span>
+        
+      </div>
+    );
 
 }
 

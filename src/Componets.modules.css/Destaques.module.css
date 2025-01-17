@@ -10,13 +10,14 @@
     
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     justify-items: center;
     width: 60%;
     padding: 15px;
     border-radius: 10px;
-    background-color: var(--color01);
+    
 }
 
 .imgDestaques{

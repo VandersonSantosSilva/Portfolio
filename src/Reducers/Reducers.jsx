@@ -2,7 +2,8 @@ import { produce } from "immer";
 
 
 function Reducers(state = {
-  menu: window.innerWidth < 1050 ? false : true,
+  widthTela: window.innerWidth < 1050 ? true : false,
+  menu: false,
   night: false,
   observation: { obsOne: false, obsTwo: false },
   widthCarousel: 0,
@@ -74,10 +75,10 @@ function Reducers(state = {
         draftState.modal.projeto = action.projeto;
         break;
       case "TIMER":
-        draftState.timer = action.payload
+        draftState.timer = action.payload;
         break;
       case "SHOW":
-        draftState.show = action.payload
+        draftState.show = action.payload;
         break;
       default:
         return state;
