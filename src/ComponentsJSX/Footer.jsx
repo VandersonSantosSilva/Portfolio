@@ -1,5 +1,6 @@
 import styles from "../Componets.modules.css/Footer.module.css"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 
 
 function Footer(){
@@ -11,24 +12,35 @@ function Footer(){
         link.click()
     }
 
-    return (
-      <div className={styles.footer}>
-        <Link to="./Projetos">
-          <button>Projetos</button>
-        </Link>
-        <button onClick={downloadFile}>Download CV</button>
-        <Link to="./Contatos">
-          <button>Contato</button>
-        </Link>
+    const dispatch = useDispatch()
 
+    const menu = useSelector((state) => state.menu);
+
+      function toggleMenu() {
+        dispatch({
+          type: "MENU",
+          payload: !menu,
+        });
+      }
+
+    return (
+      <div className={styles.footer} onClick={menu ? toggleMenu : undefined}>
+        <Link to="./Projetos">
+          <button className={styles.buttonDW}>Projetos</button>
+        </Link>
+        <button className={styles.buttonDW} onClick={downloadFile}>Download CV</button>
+        <Link to="./Contatos">
+          <button className={styles.buttonDW}>Contato</button>
+        </Link>
         
-          <spanp className={styles.containerFooter}>
+        <div className={styles.divSpanFooter}>
+          <span className={styles.containerFooter}>
             Transformando ideias em código e código em soluções
-          </spanp>
+          </span>
           <span className={styles.containerFooter}>
             &copy; 2025 todos os direitos reservados | Vanderson Santos
           </span>
-        
+        </div>
       </div>
     );
 

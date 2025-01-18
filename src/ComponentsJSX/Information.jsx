@@ -160,7 +160,7 @@ function Information(){
     }
 
     return (
-      <div className={styles.containeGeneral} onClick={toggleMenu}>
+      <div className={styles.containeGeneral} onClick={ menu ? toggleMenu : undefined}>
         {/* start dark mode */}
 
         <div className={styles.night}>

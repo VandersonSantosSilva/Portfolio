@@ -2,10 +2,13 @@ import {IoLogoWhatsapp} from "react-icons/io"
 import {BsTelegram, BsLinkedin} from "react-icons/bs"
 import {FaInstagramSquare} from "react-icons/fa"
 import styles from "../Componets.modules.css/Contacts.module.css"
+import { useSelector, useDispatch } from "react-redux";
 
 function Contatos(){
 
-    const contacts = [
+  const menu = useSelector((state) => state.menu);  
+  const dispatch = useDispatch()
+  const contacts = [
         {
             Nome: "WhatsApp",
             Link: "https://wa.me/5582996003781",
@@ -45,16 +48,25 @@ function Contatos(){
         const dynamicClassNames = `${styles[contact.Nome.toLowerCase()]}`
         const ico = `${styles[contact.classIco.toLowerCase()]}`
 
+          function toggleMenu() {
+            dispatch({
+              type: "MENU",
+              payload: !menu,
+            });
+          }
+
         return (
-          <li className={`${dynamicClassNames} ${styles.list}`} key={index}>
-            <a href={contact.Link} target="_blank" rel="external">
-              <div className={styles.containerContact}>
-                <h1>{contact.Nome}</h1>
-                <i className={ico}>{contact.ico}</i>
-                <p>{contact.description}</p>
-              </div>
-            </a>
-          </li>
+          <div onClick={menu ? toggleMenu : undefined}>
+            <li className={`${dynamicClassNames} ${styles.list}`} key={index}>
+              <a href={contact.Link} target="_blank" rel="external">
+                <div className={styles.containerContact}>
+                  <h1>{contact.Nome}</h1>
+                  <i className={ico}>{contact.ico}</i>
+                  <p>{contact.description}</p>
+                </div>
+              </a>
+            </li>
+          </div>
         );
       });
     

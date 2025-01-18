@@ -5,6 +5,7 @@ function Modal(){
     const dispatch = useDispatch()
     const isOpen = useSelector((state) => state.modal.isOpen)
     const projeto = useSelector((state) => state.modal.projeto)
+    const menu = useSelector((state) => state.menu);
 
     console.log(projeto)
 
@@ -19,8 +20,15 @@ function Modal(){
         return null;
     }
 
+    function toggleMenu() {
+      dispatch({
+        type: "MENU",
+        payload: !menu,
+      });
+    }
+
     return (
-        <div className={styles.ContainerModal}  key={projeto.ID}>
+        <div className={styles.ContainerModal}  key={projeto.ID} onClick={menu ? toggleMenu : undefined}>
             <div className={styles.Modal}>
                 <div className={styles.modalText}>
                     <button onClick={closedModal}>X</button>

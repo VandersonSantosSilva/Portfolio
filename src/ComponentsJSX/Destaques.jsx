@@ -3,10 +3,12 @@ import styles from "../Componets.modules.css/Destaques.module.css"
 import Modal from "./Modal"
 import 'animate.css'
 
+
 function Destaques() {
   const dispatch = useDispatch()
   const projetos = useSelector((state) => state.projetos)
   const isModalOpen = useSelector((state) => state.modal)
+  const menu = useSelector((state) => state.menu)
 
   const openModal = (projeto) => {
     dispatch({
@@ -16,20 +18,31 @@ function Destaques() {
     })
   }
 
+  function toggleMenu() {
+    dispatch({
+      type: "MENU",
+      payload: !menu,
+    });
+  }
+
   const selecaoItens = [1,2]
 
   const projects = selecaoItens.map((indice) => {
     
     const projeto = projetos[indice]
 
-    return(
-      <div key={projeto.ID}>
+    return (
+      <div key={projeto.ID} onClick={menu ? toggleMenu : undefined}>
         <div className={styles.Container}>
           <div
             className={styles.ContaineDestaques}
             onClick={() => openModal(projeto)}
           >
-            <img className={styles.imgDestaques} src={projeto.Img} alt={projeto.Nome} />
+            <img
+              className={styles.imgDestaques}
+              src={projeto.Img}
+              alt={projeto.Nome}
+            />
             <div className={styles.textContainer}>
               <h1>{projeto.Nome}</h1>
               <p>{projeto.description}</p>
@@ -38,8 +51,7 @@ function Destaques() {
           </div>
         </div>
       </div>
-
-    )
+    );
 })
 
   return (

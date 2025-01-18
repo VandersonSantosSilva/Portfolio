@@ -7,6 +7,7 @@ function Projetos() {
   const dispatch = useDispatch()
   const projetos = useSelector((state) => state.projetos)
   const isModalOpen = useSelector((state) => state.modal)
+  const menu = useSelector((state) => state.menu);
 
   const openModal = (projeto) => {
     dispatch({
@@ -16,14 +17,25 @@ function Projetos() {
     })
   }
 
+  function toggleMenu() {
+    dispatch({
+      type: "MENU",
+      payload: !menu,
+    });
+  }
+
   const projects = projetos.map((projeto) => (
-    <div key={projeto.ID}>
+    <div key={projeto.ID} onClick={menu ? toggleMenu : undefined}>
       <div className={styles.Container}>
         <div
           className={styles.ContaineDestaques}
           onClick={() => openModal(projeto)}
         >
-          <img className={styles.imgDestaques} src={projeto.Img} alt={projeto.Nome} />
+          <img
+            className={styles.imgDestaques}
+            src={projeto.Img}
+            alt={projeto.Nome}
+          />
           <div className={styles.textContainer}>
             <h1>{projeto.Nome}</h1>
             <p>{projeto.description}</p>
@@ -32,7 +44,7 @@ function Projetos() {
         </div>
       </div>
     </div>
-  ))
+  ));
 
   return (
     <div>
