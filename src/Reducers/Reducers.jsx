@@ -10,6 +10,7 @@ function Reducers(state = {
   modal: { isOpen: false, projeto: null },
   timer: false,
   show: "",
+  closed: false,
   projetos: [
     
       {
@@ -80,6 +81,9 @@ function Reducers(state = {
       case "SHOW":
         draftState.show = action.payload;
         break;
+      case "CLOSED":
+        draftState.closed = action.payload;
+      break;
       default:
         return state;
     }

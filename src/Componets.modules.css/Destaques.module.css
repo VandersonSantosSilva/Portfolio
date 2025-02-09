@@ -1,6 +1,241 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-.Container{
+
+
+.ContainerGeneral{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    position: relative;
+}
+
+.ContainerDados{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    position: relative;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.ContainerDados img{
+    max-width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.ContainerDados img:hover{
+    opacity: 0.2;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.ContainerDados:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.ContainerDadosh4{
+    display: none;
+}
+
+.anime{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    position: absolute;
+    transition: 0.8s;
+    z-index: 0;
+}
+
+.anime:nth-child(3){
+    font-size: 13px;
+    top: 125px;
+}
+
+.divline{
+    height: 3px;
+    animation: lineAnimate 2s infinite ease-in-out;
+    position: absolute;
+    top: 150px;
+}
+
+.Modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.ContainerModal {
+    background-color: var(--color05);
+    width: 60%;
+    height: 80%;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    padding: 10px; 
+    position: relative;
+    border: solid 1px var(--color06);
+}
+
+.Closed{
+    padding: 5px;
+    width: 4%;
+    font-size: 15px;
+    font-weight: bolder,;
+    border: solid 1px red;
+    border-radius: 10px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.Closed:hover{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.Closeed{
+    display: none;
+}
+
+.ContainerVT{
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+iframe{
+    width: 50%;
+    height: 100%!important;
+    border-radius: 10px;
+    border: none;
+}
+
+.Text{
+    text-align: center;
+    color: var(--color01);
+}
+
+
+
+
+@keyframes lineAnimate {
+    0%{
+        background-color: var(--color01);
+        width: 0%;
+    }50%{
+        background-color: var(--color04);
+        width: 30%;
+    }100%{
+        background-color: var(--color02);
+        width: 60%;
+    }
+}
+
+
+@media screen and (max-width: 999px) {
+    .ContainerDados{
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .ContainerDados img{
+        opacity: 0.2;
+    }
+
+    .ContainerDadosh4{
+        display: block;
+        position: absolute;
+        color: white;
+        font-weight: bolder;
+        right: 10px;
+        top: 110px;
+    }
+
+    .ContainerDadosh4:nth-child(3){
+        top: 150px;
+    }
+
+    .divline{
+        height: 3px;
+        animation: lineAnimate 2s infinite ease-in-out;
+        position: absolute;
+        top: 180px;
+        right: 10px;
+    }
+
+    .anime{
+        display: none;
+    }
+
+
+    .Modal{
+        justify-content: center;
+        align-items: start;
+    }
+    
+
+    .ContainerModal{
+        height: 60%;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 30px;
+    }
+
+    .Closed {
+        width: 10%;
+        top: 3px;
+        right: 15px;
+        position: absolute;
+    }
+
+    .ContainerVT{
+        margin-top: 15px;
+    }
+
+    iframe{
+        width: 100%;
+        height: 50%!important;
+    }
+
+}
+/* .Container{
     display: flex;
     justify-content: center;
     margin-top: 5%;
@@ -57,4 +292,4 @@
     }
 
     
-}
+} */
