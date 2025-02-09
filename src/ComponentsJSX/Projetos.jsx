@@ -3,6 +3,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Styles from '../Componets.modules.css/Destaques.module.css'
+import { Link } from "react-router-dom";
 
 
 
@@ -103,10 +104,12 @@ function Projetos(){
                   <p>{clickDados.Descricao}</p>
                 </div>
 
-            </div>
+                <div className={Styles.ContainerLinks}>
+                  <a className={Styles.links} href={clickDados.Linkedin} target="_blank">Projeto no Linkedin</a>
+                  <a className={Styles.links} href={clickDados.Github} target="_blank">Projeto no Github</a>
+                  <Link className={Styles.links} to="/Contatos"> Contatos </Link>
+                </div>
 
-            <div>
-              
             </div>
 
           </div>

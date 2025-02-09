@@ -7,6 +7,7 @@ function Navbar() {
   const night = useSelector((state) => state.night);
   const menu = useSelector((state) => state.menu);
   const widthTela = useSelector((state) => state.widthTela)
+  const closed = useSelector((state) => state.closed)
   const dispatch = useDispatch();
 
   function toggleMenu() {
@@ -17,7 +18,7 @@ function Navbar() {
   }
 
   return (
-    <div className={widthTela ? styles.General : ""}>
+    <div className={widthTela && !closed? styles.General : ""}>
       <button
         onClick={toggleMenu}
         className={night ? styles.buttonMenu2 : styles.buttonMenu}

@@ -148,6 +148,19 @@ iframe{
     color: var(--color01);
 }
 
+.ContainerLinks{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.links{
+    text-align: center;
+    margin-left: 10px;
+    border: solid 1px var(--color06);
+    padding: 5px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
 
 
 
@@ -210,12 +223,12 @@ iframe{
     
 
     .ContainerModal{
-        height: 60%;
-        width: 80%;
-        justify-content: center;
+        height: 80%;
+        width: 90%;
+        justify-content: start;
         align-items: center;
         position: relative;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .Closed {
@@ -234,6 +247,17 @@ iframe{
         height: 50%!important;
     }
 
+    .ContainerLinks{
+        margin-top: -10px;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .links{
+        font-size: 11px;
+    }
 }
 /* .Container{
     display: flex;

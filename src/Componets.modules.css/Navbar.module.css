@@ -64,9 +64,8 @@ a{
 
     .menuHambuguer{
         display: block;
-        margin: auto;
         margin-bottom: 15px;
-        font-size: 25px;
+        font-size: 10px;
         background-color: transparent;
         border: none;
         color: var(--color02);
@@ -130,10 +129,12 @@ a{
     .buttonMenu{
         display: block;
         text-decoration: none;
-        font-size: 30px;
+        font-size: 25px;
         color: var(--color02);
         background: transparent;
         border: none;
+        position: absolute;
+        right: -20px;
     }
 
     .buttonMenu2{
